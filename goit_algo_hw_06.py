@@ -38,6 +38,7 @@ class Record:
             if phone.value == old_phone_str:
                 self.phones[i] = new_phone
                 return
+        raise ValueError(f"Телефон {old_phone_str} не знайдено для редагування.")
 
     def find_phone(self, phone_str):
         for phone in self.phones:
@@ -64,7 +65,6 @@ class AddressBook(UserDict):
         if not self.data:
             return "Адресна книга порожня"
         return "\n".join(str(record) for record in self.data.values())
-
 
 def input_name():
     while True:
